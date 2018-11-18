@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using MoreLinq;
 
 namespace NQueens
@@ -98,7 +95,9 @@ namespace NQueens
 
         private int GetColWithMaxConflcits()
         {
-            return Enumerable.Range(0, this.boardSize - 1).MaxBy(this.GetConflictsForCol).First();
+            var colsWithMaxConflicts = Enumerable.Range(0, this.boardSize - 1).MaxBy(this.GetConflictsForCol);
+            var colToGet = this.cellRandomizer.Next(0, colsWithMaxConflicts.Count());
+            return colsWithMaxConflicts.ElementAt(colToGet);
         }
 
         private int GetConflictsForCol(int col)
@@ -110,7 +109,9 @@ namespace NQueens
 
         private int GetRowWithMinConflicts(int col)
         {
-            return Enumerable.Range(0, this.boardSize - 1).MinBy((row) => this.GetConflictsForRow(row, col)).First();
+            var rowsWithMinConflicts = Enumerable.Range(0, this.boardSize - 1).MinBy((row) => this.GetConflictsForRow(row, col));
+            var rowToGet = this.cellRandomizer.Next(0, rowsWithMinConflicts.Count());
+            return rowsWithMinConflicts.ElementAt(rowToGet);
         }
 
         private int GetConflictsForRow(int row, int col)

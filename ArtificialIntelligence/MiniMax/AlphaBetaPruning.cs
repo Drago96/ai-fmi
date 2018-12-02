@@ -53,28 +53,23 @@ namespace MiniMax
             board.MakeMove((dimensions[0], dimensions[1]));
         }
 
-        public void MakeAIMove(Board board)
+        public int MakeAIMove(Board board)
         {
-            this.MakeAIMove(board, int.MinValue, int.MaxValue, 0, this.playerMove != Move.X);   
+            if (this.playerMove == Move.X)
+            {
+                return GetMin(board, int.MinValue, int.MaxValue, 0);
+            }
+
+            return GetMax(board, int.MinValue, int.MaxValue, 0);
         }
 
-        private int MakeAIMove(Board board, int alpha, int beta, int currentDepth, bool isMax)
+        private int GetMax(Board board, int alpha, int beta, int currentDepth)
         {
             if (board.Winner != null)
             {
                 return GetScore(currentDepth, board.Winner);
             }
 
-            if (isMax)
-            {
-                return GetMax(board, alpha, beta, currentDepth);
-            }
-
-            return GetMin(board, alpha, beta, currentDepth);
-        }
-
-        private int GetMax(Board board, int alpha, int beta, int currentDepth)
-        {
             (int row, int col)? bestMove = null;
 
             foreach (var move in board.PossibleMoves)
@@ -84,7 +79,7 @@ namespace MiniMax
 
                 newBoard.MakeMove(move);
 
-                int score = MakeAIMove(newBoard, alpha, beta, currentDepth + 1, false);
+                int score = GetMin(newBoard, alpha, beta, currentDepth + 1);
 
                 if (score > alpha)
                 {
@@ -108,6 +103,11 @@ namespace MiniMax
 
         private int GetMin(Board board, int alpha, int beta, int currentDepth)
         {
+            if (board.Winner != null)
+            {
+                return GetScore(currentDepth, board.Winner);
+            }
+
             (int row, int col)? bestMove = null;
 
             foreach (var move in board.PossibleMoves)
@@ -117,7 +117,7 @@ namespace MiniMax
 
                 newBoard.MakeMove(move);
 
-                int score = MakeAIMove(newBoard, alpha, beta, currentDepth + 1, true);
+                int score = GetMax(newBoard, alpha, beta, currentDepth + 1);
 
                 if (score < beta)
                 {

@@ -50,7 +50,7 @@ namespace MiniMax
             board.Print();
             Console.Write("Select indeces for move: ");
             var dimensions = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-            var move = (dimensions[0], dimensions[1]);
+            var move = (dimensions[0] - 1, dimensions[1] - 1);
 
             if (!board.IsValidMove(move))
             {

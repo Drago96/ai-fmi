@@ -56,7 +56,12 @@ namespace MiniMax
                 }
             }
         }
-        
+
+        public bool IsValidMove((int row, int col) move)
+        {
+            return this.board[move.row, move.col] == Move.Blank;
+        }
+
         public void MakeMove((int row, int col) move)
         {
             this.board[move.row, move.col] = this.currentPlayer;

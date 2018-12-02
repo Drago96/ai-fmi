@@ -11,7 +11,7 @@ namespace MiniMax
         {
             Console.Write("Please select X or O: ");
             Enum.TryParse(Console.ReadLine(), out Move playerMove);
-            this.playerMove = playerMove;
+            this.playerMove = playerMove == Move.O ? Move.O : Move.X;
 
             Move currentPlayer = Move.X;
 
@@ -19,7 +19,6 @@ namespace MiniMax
             {
                 if (this.playerMove == currentPlayer)
                 {
-                    board.Print();
                     this.MakePlayerMove(board);
                 }
                 else
@@ -48,9 +47,19 @@ namespace MiniMax
 
         public void MakePlayerMove(Board board)
         {
+            board.Print();
             Console.Write("Select indeces for move: ");
             var dimensions = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-            board.MakeMove((dimensions[0], dimensions[1]));
+            var move = (dimensions[0], dimensions[1]);
+
+            if (!board.IsValidMove(move))
+            {
+                Console.WriteLine("Invalid move!");
+                MakePlayerMove(board);
+                return;
+            }
+
+            board.MakeMove(move);
         }
 
         public int MakeAIMove(Board board)

@@ -17,7 +17,7 @@ namespace NQueens
         public static NQueens Init()
         {
             Console.Write("Input board size: ");
-            int boardSize = int.Parse(Console.ReadLine());
+            var boardSize = int.Parse(Console.ReadLine());
 
             return new NQueens(boardSize);
         }
@@ -34,12 +34,12 @@ namespace NQueens
             {
                 this.queens = this.GetRandomBoard();
 
-                int iterations = 0;
+                var iterations = 0;
 
                 while (iterations < 2 * this.boardSize)
                 {
-                    int colWithMaxConflicts = this.GetColWithMaxConflcits();
-                    int rowWithMinConflicts = this.GetRowWithMinConflicts(colWithMaxConflicts);
+                    var colWithMaxConflicts = this.GetColWithMaxConflcits();
+                    var rowWithMinConflicts = this.GetRowWithMinConflicts(colWithMaxConflicts);
                     this.MoveQueen(colWithMaxConflicts, rowWithMinConflicts);
 
                     iterations++;
@@ -56,9 +56,9 @@ namespace NQueens
 
         private void PrintBoard()
         {
-            for (int row = 0; row < this.boardSize; row++)
+            for (var row = 0; row < this.boardSize; row++)
             {
-                for (int col = 0; col < this.boardSize; col++)
+                for (var col = 0; col < this.boardSize; col++)
                 {
                     if (this.queens[col] == row)
                     {
@@ -77,11 +77,11 @@ namespace NQueens
             this.attackedRightDiagonals = new int[2 * this.boardSize];
             this.attackedLeftDiagonals = new int[2 * this.boardSize];
 
-            int[] queens = new int[this.boardSize];
+            var queens = new int[this.boardSize];
 
-            for (int col = 0; col < this.boardSize; col++)
+            for (var col = 0; col < this.boardSize; col++)
             {
-                int row = this.cellRandomizer.Next(0, this.boardSize);
+                var row = this.cellRandomizer.Next(0, this.boardSize);
 
                 queens[col] = row;
 
@@ -102,7 +102,7 @@ namespace NQueens
 
         private int GetConflictsForCol(int col)
         {
-            int row = this.queens[col];
+            var row = this.queens[col];
             return this.attackedRows[row] + this.attackedRightDiagonals[row + col] +
                    this.attackedLeftDiagonals[(row - col) + this.boardSize] - 3;
         }
@@ -127,7 +127,7 @@ namespace NQueens
 
         private void MoveQueen(int col, int newRow)
         {
-            int currentRow = this.queens[col];
+            var currentRow = this.queens[col];
 
             this.attackedRows[currentRow]--;
             this.attackedRightDiagonals[currentRow + col]--;

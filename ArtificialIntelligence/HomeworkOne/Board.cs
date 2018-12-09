@@ -23,7 +23,7 @@ namespace HomeworkOne
         {
             this.board = new int[dimensions][];
 
-            for (int i = 0; i < dimensions; i++)
+            for (var i = 0; i < dimensions; i++)
             {
                 this.board[i] = Enumerable.Repeat(1, dimensions).ToArray();
             }
@@ -42,9 +42,9 @@ namespace HomeworkOne
 
         public void PrintBoard()
         {
-            for (int i = 0; i < this.board.Length; i++)
+            for (var i = 0; i < this.board.Length; i++)
             {
-                for (int j = 0; j < this.board.Length; j++)
+                for (var j = 0; j < this.board.Length; j++)
                 {
                     Console.Write($"{this.board[i][j]} ");
                 }
@@ -160,9 +160,9 @@ namespace HomeworkOne
 
         private void PrintPath(HashSet<(int, int)> path)
         {
-            for (int i = 0; i < this.board.Length; i++)
+            for (var i = 0; i < this.board.Length; i++)
             {
-                for (int j = 0; j < this.board.Length; j++)
+                for (var j = 0; j < this.board.Length; j++)
                 {
                     if (path.Contains((i, j)))
                     {

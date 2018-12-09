@@ -56,7 +56,7 @@ namespace SlidingBlocks
         {
             while (index < this.heap.Count / 2)
             {
-                int child = this.Left(index);
+                var child = this.Left(index);
                 if (this.HasChild(child + 1) && this.IsLess(child + 1, child))
                 {
                     child = child + 1;

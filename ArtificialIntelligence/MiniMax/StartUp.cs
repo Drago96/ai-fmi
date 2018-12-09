@@ -6,8 +6,8 @@ namespace MiniMax
     {
         static void Main(string[] args)
         {
-            Board ticTacToe = new Board();
-            AlphaBetaPruning game = new AlphaBetaPruning();
+            var ticTacToe = new Board();
+            var game = new AlphaBetaPruning();
             game.Play(ticTacToe);
         }
     }

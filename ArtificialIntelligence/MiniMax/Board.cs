@@ -28,9 +28,9 @@ namespace MiniMax
 
         public void Print()
         {
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (var j = 0; j < 3; j++)
                 {
                     Console.Write(this.board[i,j] == Move.Blank ? "-" : this.board[i,j].ToString());
                     Console.Write(" ");
@@ -44,9 +44,9 @@ namespace MiniMax
         {
             get
             {
-                for (int i = 0; i < 3; i++)
+                for (var i = 0; i < 3; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (var j = 0; j < 3; j++)
                     {
                         if (this.board[i, j] == Move.Blank)
                         {
@@ -91,7 +91,7 @@ namespace MiniMax
 
             bool IsFullRow()
             {
-                for (int i = 0; i < 3; i++)
+                for (var i = 0; i < 3; i++)
                 {
                     if (this.board[i, move.col] != currentPlayer)
                     {
@@ -104,7 +104,7 @@ namespace MiniMax
 
             bool IsFullCol()
             {
-                for (int i = 0; i < 3; i++)
+                for (var i = 0; i < 3; i++)
                 {
                     if (this.board[move.row, i] != currentPlayer)
                     {
@@ -117,9 +117,9 @@ namespace MiniMax
 
             bool IsBoardFull()
             {
-                for (int i = 0; i < 3; i++)
+                for (var i = 0; i < 3; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (var j = 0; j < 3; j++)
                     {
                         if (this.board[i, j] == Move.Blank)
                         {

@@ -13,11 +13,11 @@ namespace HomeworkOne
             Console.WriteLine();
 
             Console.WriteLine("Please select the starting cell:");
-            (int, int) startingCell = ReadCell();
+            var startingCell = ReadCell();
             Console.WriteLine();
 
             Console.WriteLine("Please select the destination cell:");
-            (int, int) destinationCell = ReadCell();
+            var destinationCell = ReadCell();
             Console.WriteLine();
 
             Console.WriteLine("Path in matrix with DFS:");
@@ -32,10 +32,10 @@ namespace HomeworkOne
         private static (int, int) ReadCell()
         {
             Console.Write("Row: ");
-            int row = int.Parse(Console.ReadLine());
+            var row = int.Parse(Console.ReadLine());
 
             Console.Write("Col: ");
-            int col = int.Parse(Console.ReadLine());
+            var col = int.Parse(Console.ReadLine());
 
             return (row, col);
         }

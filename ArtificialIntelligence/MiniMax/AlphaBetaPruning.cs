@@ -84,11 +84,11 @@ namespace MiniMax
             foreach (var move in board.PossibleMoves)
             {
 
-                Board newBoard = new Board(board);
+                var newBoard = new Board(board);
 
                 newBoard.MakeMove(move);
 
-                int score = GetMin(newBoard, alpha, beta, currentDepth + 1);
+                var score = GetMin(newBoard, alpha, beta, currentDepth + 1);
 
                 if (score > alpha)
                 {
@@ -122,11 +122,11 @@ namespace MiniMax
             foreach (var move in board.PossibleMoves)
             {
 
-                Board newBoard = new Board(board);
+                var newBoard = new Board(board);
 
                 newBoard.MakeMove(move);
 
-                int score = GetMax(newBoard, alpha, beta, currentDepth + 1);
+                var score = GetMax(newBoard, alpha, beta, currentDepth + 1);
 
                 if (score < beta)
                 {

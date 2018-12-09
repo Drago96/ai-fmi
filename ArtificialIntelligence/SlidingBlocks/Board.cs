@@ -19,9 +19,9 @@ namespace SlidingBlocks
                 throw new Exception("Invalid board size");
             }
 
-            int[][] board = new int[(int)numberOfRows][];
+            var board = new int[(int)numberOfRows][];
 
-            for (int i = 0; i < numberOfRows; i++)
+            for (var i = 0; i < numberOfRows; i++)
             {
                 var numbersForRow = Console.ReadLine().Split(" ").Select(int.Parse);
 
@@ -42,8 +42,8 @@ namespace SlidingBlocks
             this.DepthToBoard = 0;
             this.DirectionsToBoard = new List<string>();
 
-            int emptyBlockX = this.board.ToList().FindIndex((row) => row.Contains(0));
-            int emptyBlockY = this.board[emptyBlockX].ToList().FindIndex((cell) => cell == 0);
+            var emptyBlockX = this.board.ToList().FindIndex((row) => row.Contains(0));
+            var emptyBlockY = this.board[emptyBlockX].ToList().FindIndex((cell) => cell == 0);
             this.EmptyBlockCoordinates = (emptyBlockX, emptyBlockY);
         }
 
@@ -71,9 +71,9 @@ namespace SlidingBlocks
             {
                 return this.GetTraversableNeighbours(this.EmptyBlockCoordinates).Select(neighbour =>
                 {
-                    int[][] copiedBoard = board.Select(row => row.ToArray()).ToArray();
+                    var copiedBoard = board.Select(row => row.ToArray()).ToArray();
 
-                    int temp = copiedBoard[this.EmptyBlockCoordinates.row][this.EmptyBlockCoordinates.col];
+                    var temp = copiedBoard[this.EmptyBlockCoordinates.row][this.EmptyBlockCoordinates.col];
                     copiedBoard[this.EmptyBlockCoordinates.row][this.EmptyBlockCoordinates.col] =
                         copiedBoard[neighbour.row][neighbour.col];
                     copiedBoard[neighbour.row][neighbour.col] = temp;
@@ -114,7 +114,7 @@ namespace SlidingBlocks
 
         private int GetManhattanDistance(int number, (int row, int col) currentCell)
         {
-            (int row, int col) destinationCell = this.GetDestinationCoordinatesForNumber(number);
+           var destinationCell = this.GetDestinationCoordinatesForNumber(number);
 
             return Math.Abs(currentCell.row - destinationCell.row) + Math.Abs(currentCell.col - destinationCell.col);
         }
@@ -135,11 +135,11 @@ namespace SlidingBlocks
 
         public override bool Equals(object other)
         {
-            Board boardToCompare = (Board)other;
+            var boardToCompare = (Board)other;
 
-            for (int i = 0; i < this.NumberOfRows; i++)
+            for (var i = 0; i < this.NumberOfRows; i++)
             {
-                for (int j = 0; j < this.NumberOfRows; j++)
+                for (var j = 0; j < this.NumberOfRows; j++)
                 {
                     if (this.board[i][j] != boardToCompare.board[i][j])
                     {

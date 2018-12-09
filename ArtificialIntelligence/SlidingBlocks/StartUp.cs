@@ -6,7 +6,7 @@ namespace SlidingBlocks
     {
         static void Main(string[] args)
         {
-            Board board = Board.ReadBoard();
+            var board = Board.ReadBoard();
             var slidingBlocks = new SlidingBlocks(board);
             slidingBlocks.Solve();
         }

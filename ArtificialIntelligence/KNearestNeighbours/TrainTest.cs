@@ -10,10 +10,10 @@ namespace KNearestNeighbours
 
         public static (IEnumerable<Iris> training, IEnumerable<Iris> test) Split(IEnumerable<Iris> data)
         {
-            var dataRandomized = data.OrderBy(i => new Guid());
+            var dataRandomized = data.OrderBy(i => Guid.NewGuid()).ToList();
 
-            var testSet = dataRandomized.Take(TestSetSize);
-            var trainingSet = dataRandomized.Skip(TestSetSize);
+            var testSet = dataRandomized.Take(TestSetSize).ToList();
+            var trainingSet = dataRandomized.Skip(TestSetSize).ToList();
 
             return (trainingSet, testSet);
         }

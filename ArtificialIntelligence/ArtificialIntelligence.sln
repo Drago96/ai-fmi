@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NQueens", "NQueens\NQueens.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniMax", "MiniMax\MiniMax.csproj", "{6567B183-7856-4102-964C-5A6DE176DD8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KNearestNeighbours", "KNearestNeighbours\KNearestNeighbours.csproj", "{010B0D59-A21A-41C2-8F06-253F4A2C1960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KNearestNeighbours", "KNearestNeighbours\KNearestNeighbours.csproj", "{010B0D59-A21A-41C2-8F06-253F4A2C1960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaiveBayesClassifier", "NaiveBayesClassifier\NaiveBayesClassifier.csproj", "{E4E3AE88-9404-4269-82B3-245087A79855}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{010B0D59-A21A-41C2-8F06-253F4A2C1960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{010B0D59-A21A-41C2-8F06-253F4A2C1960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{010B0D59-A21A-41C2-8F06-253F4A2C1960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E3AE88-9404-4269-82B3-245087A79855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E3AE88-9404-4269-82B3-245087A79855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E3AE88-9404-4269-82B3-245087A79855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E3AE88-9404-4269-82B3-245087A79855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
